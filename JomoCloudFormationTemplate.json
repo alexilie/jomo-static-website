@@ -1,0 +1,34 @@
+{
+    "Resources":{
+        "JomoImageFiles": {
+            "Type": "AWS::S3::Bucket",
+            "Properties":{
+                "BucketName":"jomoimagefiles-oct25"
+            }
+        },
+        "JomoPDFFiles": {
+            "Type": "AWS::S3::Bucket",
+            "Properties":{
+                "BucketName":"jomopdffiles-oct25"
+            }
+        },
+        "JomoMSWordFiles": {
+            "Type": "AWS::S3::Bucket",
+            "Properties":{
+                "BucketName":"jomomswordfiles-oct25"
+            }
+        },
+        "JomoWebsiteFiles": {
+            "Type": "AWS::S3::Bucket",
+            "Properties":{
+                "BucketName":"jomowebsitefiles-oct25"
+            }
+        },
+        "JomoBatchFiles": {
+            "Type": "AWS::S3::Bucket",
+            "Properties":{
+                "BucketName":"jomobatchfiles-oct25"
+            }
+        }
+    }
+}

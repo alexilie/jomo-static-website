@@ -1,0 +1,849 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /api/v1/metamodel/systems:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllSystems
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SystemEntity'
+  /api/v1/metamodel/systems/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getSystem
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SystemEntity'
+  /api/v1/metamodel/releases:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllReleases
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReleaseEntity'
+  /api/v1/metamodel/releases/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getRelease
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ReleaseEntity'
+  /api/v1/metamodel/metadatas:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllMetadatas
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MetadataEntity'
+  /api/v1/metamodel/metadatas/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getMetadata
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/MetadataEntity'
+  /api/v1/metamodel/environments:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllEnvironments
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EnvironmentEntity'
+  /api/v1/metamodel/environments/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getEnvironment
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EnvironmentEntity'
+  /api/v1/metamodel/domains:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllDomains
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DomainEntity'
+  /api/v1/metamodel/domains/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getDomain
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DomainEntity'
+  /api/v1/metamodel/databases:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllDatabases
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DatabaseEntity'
+  /api/v1/metamodel/databases/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getDatabase
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DatabaseEntity'
+  /api/v1/metamodel/components:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllComponents
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ComponentEntity'
+  /api/v1/metamodel/components/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getComponent
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ComponentEntity'
+  /api/v1/metamodel/applications:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getAllApplications
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApplicationEntity'
+  /api/v1/metamodel/applications/{id}:
+    get:
+      tags:
+      - metamodel-web-rest-controller
+      operationId: getApplication
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApplicationEntity'
+components:
+  schemas:
+    SystemEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        domainId:
+          type: integer
+          format: int64
+        metadataId:
+          type: integer
+          format: int64
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        inventoryName:
+          type: string
+        shortName:
+          type: string
+        longName:
+          type: string
+        code:
+          type: string
+        classification:
+          type: string
+        eorganismName:
+          type: string
+        segmentName:
+          type: string
+        metadataName:
+          type: string
+        metadataType:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    ReleaseEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        metadataId:
+          type: integer
+          format: int64
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        releaseDate:
+          type: string
+          format: date-time
+        eorganismName:
+          type: string
+        metadataName:
+          type: string
+        metadataType:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    MetadataEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        metadataId:
+          type: integer
+          format: int64
+        originalId:
+          type: integer
+          format: int64
+        originalUuid:
+          type: string
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        inventoryName:
+          type: string
+        shortName:
+          type: string
+        longName:
+          type: string
+        code:
+          type: string
+        classification:
+          type: string
+        ownerName:
+          type: string
+        supportGroupName:
+          type: string
+        supportGroupEmail:
+          type: string
+        segmentName:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    EnvironmentEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        releaseId:
+          type: integer
+          format: int64
+        metadataId:
+          type: integer
+          format: int64
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        eorganismName:
+          type: string
+        metadataName:
+          type: string
+        metadataType:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    DomainEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        metadataId:
+          type: integer
+          format: int64
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        eorganismName:
+          type: string
+        metadataName:
+          type: string
+        metadataType:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    DatabaseEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        domainId:
+          type: integer
+          format: int64
+        systemId:
+          type: integer
+          format: int64
+        environmentId:
+          type: integer
+          format: int64
+        releaseId:
+          type: integer
+          format: int64
+        applicationId:
+          type: integer
+          format: int64
+        ownerId:
+          type: integer
+          format: int64
+        supportGroupId:
+          type: integer
+          format: int64
+        eorganismId:
+          type: integer
+          format: int64
+        segmentId:
+          type: integer
+          format: int64
+        metadataId:
+          type: integer
+          format: int64
+        businessUnitId:
+          type: integer
+          format: int64
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        environmentName:
+          type: string
+        releaseName:
+          type: string
+        domainName:
+          type: string
+        systemName:
+          type: string
+        applicationName:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        vendorName:
+          type: string
+        databaseVersion:
+          type: string
+        status:
+          type: string
+        inventoryName:
+          type: string
+        shortName:
+          type: string
+        longName:
+          type: string
+        code:
+          type: string
+        classification:
+          type: string
+        url:
+          type: string
+        ownerName:
+          type: string
+        supportGroupName:
+          type: string
+        supportGroupEmail:
+          type: string
+        applicationIdInput:
+          type: string
+        applicationIdInputName:
+          type: string
+        applicationIdOutput:
+          type: string
+        applicationIdOutputName:
+          type: string
+        databaseIdInput:
+          type: string
+        databaseIdInputName:
+          type: string
+        databaseIdOutput:
+          type: string
+        databaseIdOutputName:
+          type: string
+        eorganismName:
+          type: string
+        taxonomy:
+          type: string
+        topology:
+          type: string
+        graphPath:
+          type: string
+        segmentName:
+          type: string
+        metadataName:
+          type: string
+        metadataType:
+          type: string
+        serviceCode:
+          type: string
+        businessUnitName:
+          type: string
+        version:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    ComponentEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        applicationId:
+          type: integer
+          format: int64
+        eorganismId:
+          type: integer
+          format: int64
+        metadataId:
+          type: integer
+          format: int64
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        applicationName:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        inventoryName:
+          type: string
+        shortName:
+          type: string
+        longName:
+          type: string
+        code:
+          type: string
+        classification:
+          type: string
+        eorganismName:
+          type: string
+        taxonomy:
+          type: string
+        topology:
+          type: string
+        graphPath:
+          type: string
+        metadataName:
+          type: string
+        metadataType:
+          type: string
+        serviceCode:
+          type: string
+        version:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time
+    ApplicationEntity:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        domainId:
+          type: integer
+          format: int64
+        systemId:
+          type: integer
+          format: int64
+        environmentId:
+          type: integer
+          format: int64
+        releaseId:
+          type: integer
+          format: int64
+        applicationProfileId:
+          type: integer
+          format: int64
+        ownerId:
+          type: integer
+          format: int64
+        eorganismId:
+          type: integer
+          format: int64
+        supportGroupId:
+          type: integer
+          format: int64
+        segmentId:
+          type: integer
+          format: int64
+        metadataId:
+          type: integer
+          format: int64
+        businessUnitId:
+          type: integer
+          format: int64
+        eapplicationId:
+          type: integer
+          format: int64
+        lastUpdatedUserId:
+          type: integer
+          format: int64
+        lastUpdatedApplicationId:
+          type: integer
+          format: int64
+        environmentName:
+          type: string
+        releaseName:
+          type: string
+        domainName:
+          type: string
+        systemName:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        inventoryName:
+          type: string
+        shortName:
+          type: string
+        longName:
+          type: string
+        code:
+          type: string
+        classification:
+          type: string
+        ownerName:
+          type: string
+        supportGroupName:
+          type: string
+        supportGroupEmail:
+          type: string
+        eapplicationName:
+          type: string
+        applicationProfileName:
+          type: string
+        applicationIdInput:
+          type: string
+        applicationIdInputName:
+          type: string
+        applicationIdOutput:
+          type: string
+        applicationIdOutputName:
+          type: string
+        eorganismName:
+          type: string
+        taxonomy:
+          type: string
+        topology:
+          type: string
+        graphPath:
+          type: string
+        segmentName:
+          type: string
+        metadataName:
+          type: string
+        metadataType:
+          type: string
+        serviceCode:
+          type: string
+        businessUnitName:
+          type: string
+        version:
+          type: string
+        lastUpdatedUserName:
+          type: string
+        lastUpdatedApplicationName:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        lastUpdatedDate:
+          type: string
+          format: date-time

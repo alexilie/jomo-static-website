@@ -1,10 +1,10 @@
 # Alex ILIE Web Application
 
 This project business objective is to create a Professional Web Profile template than can be reused by other individuals. 
-1. Web Based Application that uses Styleshout templates deployed on AWS using AWS Amplify
+1. Web Based Application that uses StyleShout templates deployed on AWS using AWS Amplify
 
 This project will provide separate Technology based capabilities & Functional services:
-2. Web Based Application that uses Styleshout templates deployed on AWS using AWS Amplify
+2. Web Based Application that uses StyleShout templates deployed on AWS using AWS Amplify
 
 The project is built using Java 8, StyleShout template and deployed on AWS
 
@@ -31,10 +31,10 @@ This Project is build using few resources:
 - Eclipse (Optional) 
 - VisualSource Code (Optional) 
 - GitHub Desktop (optional)
-- Windows OS or Mac OS  based computer/ laptop
+- Windows OS or macOS based computer/ laptop
 - AWS Account
 - AWS Amplify configuration
-- AWS Amplify Pipeline configured automatically to Github project https://github.com/alexilie/jomo-static-website
+- AWS Amplify Pipeline configured automatically to GitHub project https://github.com/alexilie/jomo-static-website
 
 ## Libraries
 | Library name                                                                                                     | Description                                                                                                                          |
@@ -52,7 +52,7 @@ This Project is build using few resources:
 
 4. Open a Windows Command line program; change directory to intended C:\Projects folder - > cd C:\Projects
 
-5. From Windows CMD; Copy the Github "jomo-static-website" project repository using Git "clone" command > C:\Projects> git clone https://github.com/alexilie/jomo-static-website.git
+5. From Windows CMD; Copy the GitHub "jomo-static-website" project repository using Git "clone" command > C:\Projects> git clone https://github.com/alexilie/jomo-static-website.git
 ## Git Clone command  - copy repository | screen
 ![alt text](https://main.d37vqs13py7d1c.amplifyapp.com/images/metamodel/jomo-metamodel-web-img-2.PNG "Screen 2")
 
@@ -62,13 +62,13 @@ This Project is build using few resources:
 
 * Observation - GitHub repository can be downloaded as ZIP archive as well; or can be downloaded using GitHub desktop or any other Git Client 
 
-8. No need to compile and Build "jomo-static-website" - this is done automaticaly from AWS Amplify Pipeline, immediatelly after Github commit
+8. No need to compile and Build "jomo-static-website" - this is done automatically from AWS Amplify Pipeline, immediately after GitHub commit
 
-* Observation - you can open the "jomo-static-website" project in Intellij - start IntelliJ, Open Project from "jomo-static-website" folder, 
+* Observation - you can open the "jomo-static-website" project in IntelliJ - start IntelliJ, Open Project from "jomo-static-website" folder, 
 or alternatively you can open "jomo-static-website" project from inside VisualSourceCode 
 
 
-## Runnning the Website Web application as AWS S3 static Applicaytion using Amplify
+## Running the Website Web application as AWS S3 static Application using Amplify
 
 Home page: https://main.d37vqs13py7d1c.amplifyapp.com/
 

@@ -1,4 +1,16 @@
 {
+    "Parameters": {
+        "AiChatAllowedOrigins": {
+            "Type": "String",
+            "Description": "Comma-separated list of origins allowed to call the AI chat backend (CORS). The first entry is used as the CORS fallback for disallowed origins.",
+            "Default": "https://main.d37vqs13py7d1c.amplifyapp.com"
+        },
+        "AnthropicApiKeyParameterName": {
+            "Type": "String",
+            "Description": "Name of an existing SSM SecureString parameter holding the Anthropic API key. Create it manually before deploying, e.g.: aws ssm put-parameter --name /jomo/ai-chat/anthropic-api-key --type SecureString --value sk-ant-...",
+            "Default": "/jomo/ai-chat/anthropic-api-key"
+        }
+    },
     "Resources":{
         "JomoImageFiles": {
             "Type": "AWS::S3::Bucket",
@@ -29,6 +41,82 @@
             "Properties":{
                 "BucketName":"jomobatchfiles-oct25"
             }
+        },
+        "AiChatFunctionRole": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [{
+                        "Effect": "Allow",
+                        "Principal": { "Service": "lambda.amazonaws.com" },
+                        "Action": "sts:AssumeRole"
+                    }]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ],
+                "Policies": [{
+                    "PolicyName": "ReadAnthropicApiKeyParameter",
+                    "PolicyDocument": {
+                        "Version": "2012-10-17",
+                        "Statement": [{
+                            "Effect": "Allow",
+                            "Action": "ssm:GetParameter",
+                            "Resource": {
+                                "Fn::Sub": "arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter${AnthropicApiKeyParameterName}"
+                            }
+                        }]
+                    }
+                }]
+            }
+        },
+        "AiChatFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "jomo-ai-chat",
+                "Description": "Proxies the site's AI Agent chat widget to the Anthropic API, keeping the API key server-side.",
+                "Runtime": "nodejs20.x",
+                "Handler": "index.handler",
+                "Timeout": 30,
+                "MemorySize": 256,
+                "Role": { "Fn::GetAtt": ["AiChatFunctionRole", "Arn"] },
+                "Code": "./lambda/ai-chat",
+                "Environment": {
+                    "Variables": {
+                        "ANTHROPIC_API_KEY_PARAM": { "Ref": "AnthropicApiKeyParameterName" },
+                        "ALLOWED_ORIGINS": { "Ref": "AiChatAllowedOrigins" }
+                    }
+                }
+            }
+        },
+        "AiChatFunctionUrl": {
+            "Type": "AWS::Lambda::Url",
+            "Properties": {
+                "TargetFunctionArn": { "Ref": "AiChatFunction" },
+                "AuthType": "NONE",
+                "Cors": {
+                    "AllowOrigins": { "Fn::Split": [",", { "Ref": "AiChatAllowedOrigins" }] },
+                    "AllowMethods": ["POST"],
+                    "AllowHeaders": ["content-type"],
+                    "MaxAge": 300
+                }
+            }
+        },
+        "AiChatFunctionUrlPublicAccess": {
+            "Type": "AWS::Lambda::Permission",
+            "Properties": {
+                "FunctionName": { "Ref": "AiChatFunction" },
+                "Action": "lambda:InvokeFunctionUrl",
+                "Principal": "*",
+                "FunctionUrlAuthType": "NONE"
+            }
+        }
+    },
+    "Outputs": {
+        "AiChatFunctionUrl": {
+            "Description": "Public HTTPS endpoint for the AI chat backend. Set this as AI_CHAT_ENDPOINT in js/config.js.",
+            "Value": { "Fn::GetAtt": ["AiChatFunctionUrl", "FunctionUrl"] }
         }
     }
 }

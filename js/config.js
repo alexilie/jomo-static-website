@@ -6,5 +6,8 @@ window._config = {
     },
     api: {
         invokeUrl: '' // e.g. https://rc7nyt4tql.execute-api.us-west-2.amazonaws.com/prod',
+    },
+    aiChat: {
+        endpoint: '' // Lambda Function URL from the CloudFormation stack output "AiChatFunctionUrl", e.g. https://abc123.lambda-url.us-east-2.on.aws/
     }
 };

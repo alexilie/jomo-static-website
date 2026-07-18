@@ -1,0 +1,12 @@
+{
+  "name": "jomo-ai-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Lambda backend proxying the site's AI Agent chat widget to the Anthropic API.",
+  "main": "index.mjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.112.0",
+    "@aws-sdk/client-ssm": "^3.700.0"
+  }
+}

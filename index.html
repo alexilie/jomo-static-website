@@ -14,6 +14,7 @@
     ================================================== -->
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ai-chat.css">
     <!-- favicons
     ================================================== -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -745,11 +746,51 @@
             </a>
         </div> <!-- end ss-go-top -->
     </footer> <!-- end footer -->
+
+    <!-- # AI Agent chat widget
+    ================================================== -->
+    <button id="ai-chat-toggle" class="ai-chat-toggle" type="button" aria-controls="ai-chat-panel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 3C7.03 3 3 6.58 3 11c0 2.39 1.19 4.53 3.06 6.03-.1.98-.5 2.24-1.56 3.47a.5.5 0 0 0 .47.8c1.98-.38 3.5-1.16 4.5-1.83.79.2 1.63.31 2.53.31 4.97 0 9-3.58 9-8s-4.03-8-9-8Z" fill="currentColor"/>
+        </svg>
+        Ask AI Agent
+    </button>
+
+    <div id="ai-chat-panel" class="ai-chat-panel" role="dialog" aria-labelledby="ai-chat-title" aria-hidden="true">
+        <div class="ai-chat-panel__header">
+            <div class="ai-chat-panel__title">
+                <strong id="ai-chat-title">Anthropic AI Agent</strong>
+                <span>Preview — not yet connected to a live backend</span>
+            </div>
+            <button id="ai-chat-close" class="ai-chat-panel__close" type="button" aria-label="Close chat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <div id="ai-chat-messages" class="ai-chat-panel__messages">
+            <div class="ai-chat-msg ai-chat-msg--bot">
+                Hi! I'm a preview of an AI agent that could answer questions about Alex's
+                background and experience. I'm not connected to a live AI yet — feel
+                free to try me out, or reach out via the contact form below.
+            </div>
+        </div>
+        <form id="ai-chat-form" class="ai-chat-panel__form">
+            <textarea id="ai-chat-input" class="ai-chat-panel__input" rows="1" placeholder="Type a message..." aria-label="Message"></textarea>
+            <button id="ai-chat-send" class="ai-chat-panel__send" type="submit" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M3 11.5 21 3l-6.5 18-3.5-7.5L3 11.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+
     <!-- Java Script
     ================================================== -->
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script src="js/config.js"></script>
+    <script src="js/ai-chat.js"></script>
 
 </body>
 </html>
